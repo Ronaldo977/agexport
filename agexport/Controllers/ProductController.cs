@@ -6,7 +6,7 @@ using System.IO;
 
 namespace agexport.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ProductController : ControllerBase
     {
