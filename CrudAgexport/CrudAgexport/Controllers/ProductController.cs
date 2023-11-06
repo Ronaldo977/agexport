@@ -1,5 +1,6 @@
 ﻿using CrudAgexport.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 
 namespace CrudAgexport.Controllers
@@ -23,10 +24,9 @@ namespace CrudAgexport.Controllers
             if (respone.IsSuccessStatusCode)
             {
                 string data = respone.Content.ReadAsStringAsync().Result;
-                productList = JsonConverter.DeserializeObject<List<ProductViewModel>>(data);
-
+                productList = JsonConvert.DeserializeObject<List<ProductViewModel>>(data);
             }
-            return View();
+            return View(productList);
         }
 
 
